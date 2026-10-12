@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ventas - Ferretería El Constructor</title><link rel="stylesheet" href="css/estilos.css"></head>
+<body><header class="barra"><h1>Ferretería El Constructor</h1><div class="barra-usuario"><span id="usuarioActual"></span><a id="volverAdmin" href="admin.html" class="enlace-barra" hidden>Volver a administración</a><button id="salir" class="boton-secundario">Cerrar sesión</button></div></header>
+<main class="contenido contenido-ancho"><p id="saludo" class="aviso-cumpleanos" hidden></p>
+<div class="pestanas-demo" id="pestanasVendedor"><button id="pestanaNueva" class="activa" type="button">Nueva venta</button><button id="pestanaFacturas" type="button">Facturas realizadas</button></div><section id="seccionVenta" class="tarjeta"><h2>Nueva venta</h2><p class="ayuda">Seleccioná el cliente y agregá los productos que desea comprar.</p>
+<label for="cliente">Cliente</label><select id="cliente"></select><p id="correoCliente" class="ayuda"></p>
+<label for="tipo">Tipo de documento</label><select id="tipo"><option value="CF">Factura consumidor final</option><option value="CCF">Comprobante de crédito fiscal</option></select>
+<div id="datosFiscales" class="datos-fiscales" hidden><h3>Datos para crédito fiscal</h3><p class="ayuda">Completá los datos fiscales del cliente para emitir este comprobante.</p><label for="nit">NIT</label><input id="nit" maxlength="17" placeholder="NIT del cliente"><label for="nrc">NRC</label><input id="nrc" maxlength="20" placeholder="Registro de contribuyente"><label for="giro">Giro o actividad económica</label><input id="giro" maxlength="150" placeholder="Actividad económica del cliente"></div>
+<div class="fila-venta"><div><label for="producto">Producto</label><select id="producto"></select></div><div><label for="cantidad">Cantidad</label><input id="cantidad" type="number" min="1" value="1"></div><button id="agregar" type="button">Agregar producto</button></div>
+<div class="tabla-contenedor"><table class="tabla"><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Importe</th><th></th></tr></thead><tbody id="detalle"></tbody></table></div>
+<div class="totales"><p>Total a pagar (impuestos incluidos): <strong id="total">$0.00</strong></p></div>
+<button id="facturar" type="button">Guardar venta y enviar factura por correo</button><p id="resultado" role="status"></p></section>
+<section id="seccionHistorial" class="tarjeta seccion-separada" hidden><h2 id="tituloHistorial">Facturas realizadas</h2><div class="tabla-contenedor"><table class="tabla"><thead><tr><th>Número</th><th>Cliente</th><th>Total</th><th>Correo</th></tr></thead><tbody id="historial"></tbody></table></div></section></main>
+<script src="js/demo-ventas.js"></script></body></html>
