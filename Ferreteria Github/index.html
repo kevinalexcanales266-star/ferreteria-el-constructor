@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferretería El Constructor - Iniciar sesión</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-login">
+  <main class="tarjeta-login">
+    <h1>Ferretería El Constructor</h1>
+    <p class="subtitulo">Sistema de facturación</p>
+
+    <form id="formLogin" novalidate>
+      <p id="mensajeError" class="mensaje-error" role="alert" hidden></p>
+
+      <div class="campo">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" autocomplete="username" autofocus required>
+      </div>
+
+      <div class="campo">
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" name="clave" autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" id="botonEntrar" class="boton">Iniciar sesión</button>
+    </form>
+    <p class="ayuda" style="margin-top:16px">Demostración del diseño. Elegí un rol para recorrer las pantallas.</p>
+    <div class="pestanas-demo"><button type="button" id="verVendedor">Ver como vendedor</button><button type="button" id="verAdmin">Ver como administrador</button></div>
+  </main>
+
+  
+<script src="js/demo-login.js"></script></body>
+</html>

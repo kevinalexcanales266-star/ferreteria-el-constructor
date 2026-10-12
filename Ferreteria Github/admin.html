@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferretería El Constructor - Administración</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <h1>Ferretería El Constructor</h1>
+    <div class="barra-usuario">
+      <a href="ventas.html" class="enlace-barra">Ventas</a>
+      <span id="nombreUsuario"></span>
+      <button type="button" id="botonSalir" class="boton-secundario">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido-ancho">
+    <section class="tarjeta">
+      <h2>Vendedores</h2>
+      <p class="ayuda">Desde aquí defines cuándo puede entrar cada vendedor, le asignas vacaciones o lo bloqueas de forma permanente.</p>
+      <p id="errorGeneral" class="mensaje-error" hidden></p>
+
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Vendedor</th>
+              <th>Sucursal</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoVendedores"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tarjeta seccion-separada">
+      <h2>Intentos de acceso recientes</h2>
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Fecha y hora</th>
+              <th>Usuario</th>
+              <th>Resultado</th>
+              <th>Aviso por correo</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoIntentos"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlgHorario">
+    <h2 id="tituloHorario"></h2>
+    <p class="ayuda">Marca los días en que puede entrar y define el rango de horas. Los días sin marcar quedan sin acceso.</p>
+    <div id="filasHorario" class="filas-horario"></div>
+    <p id="errorHorario" class="mensaje-error" hidden></p>
+    <div class="acciones-dialogo">
+      <button type="button" class="boton-neutro" data-cerrar>Cancelar</button>
+      <button type="button" id="guardarHorario" class="boton boton-auto">Guardar horario</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgVacaciones">
+    <h2 id="tituloVacaciones"></h2>
+    <h3>Vacaciones asignadas</h3>
+    <ul id="listaVacaciones" class="lista-vacaciones"></ul>
+
+    <h3>Asignar nuevas vacaciones</h3>
+    <div class="fila-campos">
+      <div class="campo">
+        <label for="fechaInicio">Desde</label>
+        <input type="date" id="fechaInicio">
+      </div>
+      <div class="campo">
+        <label for="fechaFin">Hasta</label>
+        <input type="date" id="fechaFin">
+      </div>
+    </div>
+    <div class="campo">
+      <label for="motivoVacaciones">Motivo (opcional)</label>
+      <input type="text" id="motivoVacaciones" maxlength="200">
+    </div>
+    <p id="errorVacaciones" class="mensaje-error" hidden></p>
+    <div class="acciones-dialogo">
+      <button type="button" class="boton-neutro" data-cerrar>Cerrar</button>
+      <button type="button" id="guardarVacaciones" class="boton boton-auto">Asignar vacaciones</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgBloqueo">
+    <h2 id="tituloBloqueo"></h2>
+    <p class="ayuda">El vendedor no podrá iniciar sesión hasta que lo desbloquees. Si tiene una sesión abierta, se cerrará en su próxima acción.</p>
+    <div class="campo">
+      <label for="motivoBloqueo">Motivo (opcional)</label>
+      <input type="text" id="motivoBloqueo" maxlength="200">
+    </div>
+    <p id="errorBloqueo" class="mensaje-error" hidden></p>
+    <div class="acciones-dialogo">
+      <button type="button" class="boton-neutro" data-cerrar>Cancelar</button>
+      <button type="button" id="confirmarBloqueo" class="boton boton-auto boton-peligro">Bloquear</button>
+    </div>
+  </dialog>
+
+  
+  
+<script src="js/demo-admin.js"></script></body>
+</html>
